@@ -4,7 +4,7 @@ import MovieCard from '@/components/movie_card';
 async function getMovies (page:number) {
   const API_KEY = process.env.TMDB_API_KEY;
 
-	const movies = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&api_key=${API_KEY}`, {
+	const movies = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}&api_key=${API_KEY}`, {
 		cache: 'no-store'
 	});
 	const result = await movies.json();
@@ -18,7 +18,7 @@ export default async function Home () {
   return (
     <>
       <div className="w-full px-10 pt-7 pb-8">
-        <h3 className="mb-5 font-semibold">Popular Movies</h3>
+        <h3 className="mb-5 font-semibold">Top Rated Movies</h3>
 
         <div className="grid grid-cols-4 gap-7">
           <div className="">
